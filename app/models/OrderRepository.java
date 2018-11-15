@@ -37,4 +37,13 @@ public class OrderRepository {
         }
         return null;
     }
+
+    public List<Order> retrieveOrders(String id) {
+        for (Account a : accountRepository.getAccountList()) {
+            if (a.getId().equals(id)) {
+                return a.getOrders();
+            }
+        }
+        return null;
+    }
 }
