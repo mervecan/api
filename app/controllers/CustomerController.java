@@ -3,7 +3,8 @@ package controllers;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.inject.Inject;
 import models.Account;
-import models.AccountRepository;
+import models.Customer;
+import models.CustomerRepository;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -11,37 +12,37 @@ import play.mvc.Result;
 public class CustomerController extends Controller {
 
     @Inject
-    public AccountRepository accountRepository;
+    public CustomerRepository customerRepository;
 
-    public Result create() {
-        Account bookRequest = Json.fromJson(request().body().asJson(), Account.class);
+    public Result createCustomer() {
+        Customer customerRequest = Json.fromJson(request().body().asJson(), Customer.class);
 
-        accountRepository.createAccount(bookRequest);
+        customerRepository.createCustomer(customerRequest);
 
-        return created(Json.toJson(bookRequest)).as("application/json");
+        return created(Json.toJson(customerRequest)).as("application/json");
     }
 
-    public Result delete() {
+    public Result deleteCustomer() {
         JsonNode json = request().body().asJson();
         String id = json.findPath("id").textValue();
-        Boolean val = accountRepository.delete(id);
+        Boolean val = customerRepository.deleteCustomer(id);
         return ok(String.valueOf(val)).as("application/json");
     }
 
-    public Result update() {
-        Account bookRequest = Json.fromJson(request().body().asJson(), Account.class);
-        accountRepository.updateAccount(bookRequest);
-        return ok(Json.toJson(bookRequest)).as("application/json");
+    public Result updateCustomer() {
+        Customer customerRequest = Json.fromJson(request().body().asJson(), Customer.class);
+        customerRepository.updateCustomer(customerRequest);
+        return ok(Json.toJson(customerRequest)).as("application/json");
     }
 
-    public Result retrieveAccount() {
+    public Result retrieveCustomer() {
         JsonNode json = request().body().asJson();
         String id = json.findPath("id").textValue();
-        Account account = accountRepository.retrieveAccount(id);
-        if (account == null) {
+        Customer customer = customerRepository.retrieveCustomer(id);
+        if (customer == null) {
             return ok("sorry");
         }
-        return ok(Json.toJson(account)).as("application/json");
+        return ok(Json.toJson(customer)).as("application/json");
     }
 
 

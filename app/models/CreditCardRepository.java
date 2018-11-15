@@ -1,11 +1,16 @@
 package models;
 
+import com.google.inject.Inject;
 import play.mvc.Result;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class CreditCardRepository {
+    private static final AtomicInteger count = new AtomicInteger(0);
+    @Inject
+    public AccountRepository accountRepository;
 
     private List<CreditCard> creditCardList;
 
@@ -22,19 +27,14 @@ public class CreditCardRepository {
         creditCardList = new ArrayList<CreditCard>();
     }
 
-    public Result create() {
+    public CreditCard createCreditCard(String id, CreditCard creditCard) {
+        for (Account a : accountRepository.getAccountList()) {
+            if (a.getId().equals(id)) {
+                a.addCreditCard(creditCard);
+                return creditCard;
+            }
+        }
         return null;
     }
 
-    public Result delete() {
-        return null;
-    }
-
-    public Result update() {
-        return null;
-    }
-
-    public Result retrieveAccount() {
-        return null;
-    }
 }

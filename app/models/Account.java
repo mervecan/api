@@ -6,10 +6,10 @@ import java.util.List;
 public class Account {
     private String id;
     private Customer customer;
-    private List<BankAccount> bankAccounts;
-    private List<CreditCard> creditCards;
+    private List<BankAccount> bankAccounts = new ArrayList<BankAccount>();
+    private List<CreditCard> creditCards = new ArrayList<CreditCard>();
     private String createdTime;
-    private List<Order> orders = new ArrayList<>();
+    private List<Order> orders = new ArrayList<Order>();
 
     public Account(String id, Customer customer, List<BankAccount> bankAccounts, List<CreditCard> creditCards, String createdTime, List<Order> orders) {
         this.id = id;
@@ -74,6 +74,14 @@ public class Account {
 
     public void addOrders(Order order) {
         orders.add(order);
+    }
+
+    public void addCreditCard(CreditCard creditCard) {
+        creditCards.add(creditCard);
+    }
+
+    public void addBankAccount(BankAccount bankAccount) {
+        bankAccounts.add(bankAccount);
     }
 
     @Override

@@ -30,6 +30,10 @@ public class CustomerRepository {
         return customer;
     }
 
+    public Customer updateCustomer(Customer customer) {
+        return null;
+    }
+
     public Customer retrieveCustomer(String id) {
         for (Customer a : customerList) {
             if (a.getId().equals(id)) {
@@ -39,7 +43,7 @@ public class CustomerRepository {
         return null;
     }
 
-    public boolean delete(String id) {
+    public boolean deleteCustomer(String id) {
         for (Customer a : customerList) {
             if (a.getId().equals(id)) {
                 customerList.remove(a);

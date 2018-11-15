@@ -16,7 +16,7 @@ public class AccountController extends Controller {
     @Inject
     public AccountRepository accountRepository;
 
-    public Result create() {
+    public Result createAccount() {
         Account bookRequest = Json.fromJson(request().body().asJson(), Account.class);
 
         accountRepository.createAccount(bookRequest);
@@ -24,14 +24,14 @@ public class AccountController extends Controller {
         return created(Json.toJson(bookRequest)).as("application/json");
     }
 
-    public Result delete() {
+    public Result deleteAccount() {
         JsonNode json = request().body().asJson();
         String id = json.findPath("id").textValue();
         Boolean val = accountRepository.delete(id);
         return ok(String.valueOf(val)).as("application/json");
     }
 
-    public Result update() {
+    public Result updateAccount() {
         Account bookRequest = Json.fromJson(request().body().asJson(), Account.class);
         accountRepository.updateAccount(bookRequest);
         return ok(Json.toJson(bookRequest)).as("application/json");

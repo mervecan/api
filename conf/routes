@@ -4,19 +4,19 @@
 
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
-POST    /account                    controllers.AccountController.create
-PUT     /account                    controllers.AccountController.update
-DELETE  /account                    controllers.AccountController.delete
+POST    /account                    controllers.AccountController.createAccount
+PUT     /account                    controllers.AccountController.updateAccount
+DELETE  /account                    controllers.AccountController.deleteAccount
 GET     /account                    controllers.AccountController.retrieveAccount
 POST    /account/:id/order          controllers.OrderController.createOrder(id : String)
-POST    /account/:id/creditCard     controllers.OrderController.createOrder(id : String)
-POST    /account/:id/bankAccount    controllers.
+POST    /account/:id/creditCard     controllers.CreditCardController.createCreditCard(id : String)
+POST    /account/:id/bankAccount    controllers.BankAccountController.createBankAccount(id : String)
 
 
-POST    /customer                   controllers.CustomerController.create
-PUT     /customer                   controllers.CustomerController.update
-DELETE  /customer                   controllers.CustomerController.update
-GET     /customer                   controllers.CustomerController.retrieveAccount
+POST    /customer                   controllers.CustomerController.createCustomer
+PUT     /customer                   controllers.CustomerController.updateCustomer
+DELETE  /customer                   controllers.CustomerController.updateCustomer
+GET     /customer                   controllers.CustomerController.retrieveCustomer
 
 
 # Map static resources from the /public folder to the /assets URL path
