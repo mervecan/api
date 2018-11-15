@@ -17,18 +17,26 @@ public class AccountController extends Controller {
     public AccountRepository accountRepository;
 
     public Result createAccount() {
-        Account bookRequest = Json.fromJson(request().body().asJson(), Account.class);
+        JsonNode json = request().body().asJson();
+//        String id = json.findPath("id").textValue();
+//        if(id == null){
+//
+//        }
+        Account accountRequest = Json.fromJson(request().body().asJson(), Account.class);
+        accountRepository.createAccount(accountRequest);
 
-        accountRepository.createAccount(bookRequest);
-
-        return created(Json.toJson(bookRequest)).as("application/json");
+        return created(Json.toJson(accountRequest)).as("application/json");
     }
 
     public Result deleteAccount() {
         JsonNode json = request().body().asJson();
         String id = json.findPath("id").textValue();
         Boolean val = accountRepository.delete(id);
-        return ok(String.valueOf(val)).as("application/json");
+        if (val.equals(true)) {
+            return status(200, "resource deleted successfully");
+        } else {
+            return status(404, "Resource is not found");
+        }
     }
 
     public Result updateAccount() {
