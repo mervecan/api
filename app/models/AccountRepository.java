@@ -1,17 +1,12 @@
 package models;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import play.mvc.Result;
-import util.Util;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-
 public class AccountRepository {
-    private static final AtomicInteger count = new AtomicInteger(1);
-    private List<Account> accountList;
+    private static final AtomicInteger count = new AtomicInteger(0);
+    private static List<Account> accountList;
 
     private static AccountRepository instance = null;
 
@@ -26,43 +21,49 @@ public class AccountRepository {
         accountList = new ArrayList<Account>();
     }
 
-    public Account addAccount(Account account) {
+    public List<Account> getAccountList() {
+        return accountList;
+    }
+
+    public Account createAccount(Account account) {
         int id = count.incrementAndGet();
         account.setId(String.valueOf(id));
         account.setId(String.valueOf(id));
+        accountList.size();
         accountList.add(account);
         return account;
     }
 
-    public Account updateAccount(Account account) {
-        int id = Integer.valueOf(account.getId());
-//        if (account..containsKey(id)) {
-//            accounts.put(id, account);
-//            return account;
-//        }
+    public Account retrieveAccount(String id) {
+        for (Account a : accountList) {
+            if (a.getId().equals(id)) {
+                return a;
+            }
+        }
         return null;
     }
 
-    public boolean deleteAccount(String id) {
-        int index = -1;
+    public Account updateAccount(Account account) {
+//        for (Account a : accountList) {
+//            if (a.getId().equals(account.getId())) {
+//                account.setBusinessName(account.getBusinessName());
+//                account.setBalances(account.getBalances());
+//                account.setCountry(account.getCountry());
+//                account.setCard(account.getCard());
+//                account.setCreatedTime(account.getCreatedTime());
+//            }
+//        }
+        return account;
+    }
+
+    public boolean delete(String id) {
         for (Account a : accountList) {
-            if (a.getId() == String.valueOf(id)) {
-                index = accountList.indexOf(a);
-                continue;
+            if (a.getId().equals(id)) {
+                accountList.remove(a);
+                return true;
             }
         }
-        if (index > -1) {
-            accountList.remove(index);
-        }
-        return true;
+        return false;
     }
-
-    // return all accounts
-    public List<Account> retrieveAllAccounts() {
-        return accountList;
-    }
-
-
 }
-
 

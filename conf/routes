@@ -5,6 +5,19 @@
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
 POST    /account                    controllers.AccountController.create
-GET     /accounts                   controllers.AccountController.retrieveAllAccounts
+PUT     /account                    controllers.AccountController.update
+DELETE  /account                    controllers.AccountController.delete
+GET     /account                    controllers.AccountController.retrieveAccount
+POST    /account/:id/order          controllers.OrderController.createOrder(id : String)
+POST    /account/:id/creditCard     controllers.OrderController.createOrder(id : String)
+POST    /account/:id/bankAccount    controllers.
+
+
+POST    /customer                   controllers.CustomerController.create
+PUT     /customer                   controllers.CustomerController.update
+DELETE  /customer                   controllers.CustomerController.update
+GET     /customer                   controllers.CustomerController.retrieveAccount
+
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

@@ -1,28 +1,24 @@
 package models;
 
 public class Customer {
-    private String email;
     private String id;
-    private String name;
-    private String phone;
-
-    public Customer(String email, String id, String name, String phone) {
-        this.email = email;
-        this.id = id;
-        this.name = name;
-        this.phone = phone;
-    }
+    private String businessName;
+    private String businessUrl;
+    private String country;
+    private String email;
+    private Address address;
 
     public Customer() {
 
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
+    public Customer(String id, String businessName, String businessUrl, String country, String email, Address address) {
+        this.id = id;
+        this.businessName = businessName;
+        this.businessUrl = businessUrl;
+        this.country = country;
         this.email = email;
+        this.address = address;
     }
 
     public String getId() {
@@ -33,29 +29,55 @@ public class Customer {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getBusinessName() {
+        return businessName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setBusinessName(String businessName) {
+        this.businessName = businessName;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getBusinessUrl() {
+        return businessUrl;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setBusinessUrl(String businessUrl) {
+        this.businessUrl = businessUrl;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override
     public String toString() {
         return "Customer{" +
-                "email='" + email + '\'' +
-                ", id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", phone='" + phone + '\'' +
+                "id='" + id + '\'' +
+                ", businessName='" + businessName + '\'' +
+                ", businessUrl='" + businessUrl + '\'' +
+                ", country='" + country + '\'' +
+                ", email='" + email + '\'' +
+                ", address=" + address +
                 '}';
     }
 }

@@ -1,77 +1,27 @@
 package models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Account {
-    private String businessName;
-    private String businessUrl;
-    private String country;
-    private int createdTime;
-    private String currency;
-    private String email;
     private String id;
     private Customer customer;
+    private List<BankAccount> bankAccounts;
+    private List<CreditCard> creditCards;
+    private String createdTime;
+    private List<Order> orders = new ArrayList<>();
+
+    public Account(String id, Customer customer, List<BankAccount> bankAccounts, List<CreditCard> creditCards, String createdTime, List<Order> orders) {
+        this.id = id;
+        this.customer = customer;
+        this.bankAccounts = bankAccounts;
+        this.creditCards = creditCards;
+        this.createdTime = createdTime;
+        this.orders = orders;
+    }
 
     public Account() {
 
-    }
-
-    public Account(String businessName, String businessUrl, String country, int createdTime, String currency, String email, String id, Customer customer) {
-        this.businessName = businessName;
-        this.businessUrl = businessUrl;
-        this.country = country;
-        this.createdTime = createdTime;
-        this.currency = currency;
-        this.email = email;
-        this.id = id;
-        this.customer = customer;
-
-    }
-
-    public String getBusinessName() {
-        return businessName;
-    }
-
-    public void setBusinessName(String businessName) {
-        this.businessName = businessName;
-    }
-
-    public String getBusinessUrl() {
-        return businessUrl;
-    }
-
-    public void setBusinessUrl(String businessUrl) {
-        this.businessUrl = businessUrl;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public int getCreatedTime() {
-        return createdTime;
-    }
-
-    public void setCreatedTime(int createdTime) {
-        this.createdTime = createdTime;
-    }
-
-    public String getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getId() {
@@ -82,21 +32,59 @@ public class Account {
         this.id = id;
     }
 
-    public Account(Customer customer) {
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public List<BankAccount> getBankAccounts() {
+        return bankAccounts;
+    }
+
+    public void setBankAccounts(List<BankAccount> bankAccounts) {
+        this.bankAccounts = bankAccounts;
+    }
+
+    public List<CreditCard> getCreditCards() {
+        return creditCards;
+    }
+
+    public void setCreditCards(List<CreditCard> creditCards) {
+        this.creditCards = creditCards;
+    }
+
+    public String getCreatedTime() {
+        return createdTime;
+    }
+
+    public void setCreatedTime(String createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
+    public void addOrders(Order order) {
+        orders.add(order);
     }
 
     @Override
     public String toString() {
         return "Account{" +
-                "businessName='" + businessName + '\'' +
-                ", businessUrl='" + businessUrl + '\'' +
-                ", country='" + country + '\'' +
-                ", createdTime=" + createdTime +
-                ", currency='" + currency + '\'' +
-                ", email='" + email + '\'' +
-                ", id='" + id + '\'' +
+                "id='" + id + '\'' +
                 ", customer=" + customer +
+                ", bankAccounts=" + bankAccounts +
+                ", creditCards=" + creditCards +
+                ", createdTime='" + createdTime + '\'' +
+                ", orders=" + orders +
                 '}';
     }
 }
