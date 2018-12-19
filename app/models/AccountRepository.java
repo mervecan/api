@@ -44,19 +44,23 @@ public class AccountRepository {
     }
 
     public Account updateAccount(Account account) {
-//        for (Account a : accountList) {
-//            if (a.getId().equals(account.getId())) {
-//                account.setBusinessName(account.getBusinessName());
-//                account.setBalances(account.getBalances());
-//                account.setCountry(account.getCountry());
-//                account.setCard(account.getCard());
-//                account.setCreatedTime(account.getCreatedTime());
-//            }
-//        }
-        return account;
+        for (Account a : accountList) {
+            if (a.getId().equals(account.getId())) {
+                a.setId(String.valueOf(account.getId()));
+                a.setCustomer((account.getCustomer()));
+                a.setBankAccounts(account.getBankAccounts());
+                a.setCreditCards(account.getCreditCards());
+                a.setCreatedTime(account.getCreatedTime());
+                a.setOrders(account.getOrders());
+                return account;
+            }else{
+                return null;
+            }
+        }
+        return null;
     }
 
-    public boolean delete(String id) {
+    public boolean deleteAccount(String id) {
         for (Account a : accountList) {
             if (a.getId().equals(id)) {
                 accountList.remove(a);

@@ -27,9 +27,6 @@ dependencies {
     play "com.typesafe.play:filters-helpers_$scalaVersion:$playVersion"
 }
 
-dependencies {
-    implementation 'com.google.code.gson:gson:2.8.5'
-}
 
 repositories {
     jcenter()

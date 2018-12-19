@@ -8,11 +8,12 @@ POST    /account                    controllers.AccountController.createAccount
 PUT     /account                    controllers.AccountController.updateAccount
 DELETE  /account                    controllers.AccountController.deleteAccount
 GET     /account                    controllers.AccountController.retrieveAccount
+
 POST    /account/:id/order          controllers.OrderController.createOrder(id : String)
 GET     /account/:id/order          controllers.OrderController.retrieveOrders(id : String)
+
 POST    /account/:id/creditCard     controllers.CreditCardController.createCreditCard(id : String)
 POST    /account/:id/bankAccount    controllers.BankAccountController.createBankAccount(id : String)
-
 
 POST    /customer                   controllers.CustomerController.createCustomer
 PUT     /customer                   controllers.CustomerController.updateCustomer

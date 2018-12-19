@@ -1,7 +1,7 @@
 package models;
 
 public class Customer {
-    private String id;
+    private String customerId;
     private String businessName;
     private String businessUrl;
     private String country;
@@ -12,8 +12,8 @@ public class Customer {
 
     }
 
-    public Customer(String id, String businessName, String businessUrl, String country, String email, Address address) {
-        this.id = id;
+    public Customer(String customerId, String businessName, String businessUrl, String country, String email, Address address) {
+        this.customerId = customerId;
         this.businessName = businessName;
         this.businessUrl = businessUrl;
         this.country = country;
@@ -22,11 +22,11 @@ public class Customer {
     }
 
     public String getId() {
-        return id;
+        return customerId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String customerId) {
+        this.customerId = customerId;
     }
 
     public String getBusinessName() {
@@ -72,7 +72,7 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer{" +
-                "id='" + id + '\'' +
+                "customerId='" + customerId + '\'' +
                 ", businessName='" + businessName + '\'' +
                 ", businessUrl='" + businessUrl + '\'' +
                 ", country='" + country + '\'' +

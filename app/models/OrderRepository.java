@@ -33,15 +33,19 @@ public class OrderRepository {
         for (Account a : accountRepository.getAccountList()) {
             if (a.getId().equals(id)) {
                 a.addOrders(order);
+            }else{
+                return null;
             }
         }
-        return null;
+        return order;
     }
 
     public List<Order> retrieveOrders(String id) {
         for (Account a : accountRepository.getAccountList()) {
             if (a.getId().equals(id)) {
                 return a.getOrders();
+            }else{
+                return null;
             }
         }
         return null;

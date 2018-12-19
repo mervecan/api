@@ -1,7 +1,7 @@
 package models;
 
 public class Product {
-    private String id;
+    private String productId;
     private String name;
     private String definition;
     private String price;
@@ -10,19 +10,19 @@ public class Product {
 
     }
 
-    public Product(String id, String name, String definition, String price) {
-        this.id = id;
+    public Product(String productId, String name, String definition, String price) {
+        this.productId = productId;
         this.name = name;
         this.definition = definition;
         this.price = price;
     }
 
-    public String getId() {
-        return id;
+    public String getProductId() {
+        return productId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 
     public String getName() {
@@ -52,7 +52,7 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "id='" + id + '\'' +
+                "productId='" + productId + '\'' +
                 ", name='" + name + '\'' +
                 ", definition='" + definition + '\'' +
                 ", price='" + price + '\'' +

@@ -14,19 +14,27 @@ public class OrderController extends Controller {
     @Inject
     public OrderRepository orderRepository;
 
+
     public Result createOrder(String id) {
 
-        Order bookRequest = Json.fromJson(request().body().asJson(), Order.class);
+        Order orderRequest = Json.fromJson(request().body().asJson(), Order.class);
 
-        orderRepository.createOrder(id, bookRequest);
-
-        return created(Json.toJson(bookRequest)).as("application/json");
+        Order order = orderRepository.createOrder(id, orderRequest);
+        if(order==null){
+            return status(404, "Not Found: Account cannot found");
+        }
+        else {
+            return created(Json.toJson(orderRequest)).as("application/json");
+        }
     }
 
     public Result retrieveOrders(String id) {
-
-        List<Order> orders = orderRepository.retrieveOrders(id);
-        return created(Json.toJson(orders)).as("application/json");
+            List<Order> orders = orderRepository.retrieveOrders(id);
+            if(orders==null){
+                return status(404, "account is not found");
+            }
+            else{
+                return ok(Json.toJson(orders)).as("application/json");
+            }
     }
-
 }

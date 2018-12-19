@@ -1,7 +1,7 @@
 package models;
 
 public class BankAccount {
-    private String id;
+    private String bankAccountId;
     private Account account;
     private String bankName;
     private String iban;
@@ -11,20 +11,20 @@ public class BankAccount {
 
     }
 
-    public BankAccount(String id, Account account, String bankName, String iban, Balance balance) {
-        this.id = id;
+    public BankAccount(String bankAccountId, Account account, String bankName, String iban, Balance balance) {
+        this.bankAccountId = bankAccountId;
         this.account = account;
         this.bankName = bankName;
         this.iban = iban;
         this.balance = balance;
     }
 
-    public String getId() {
-        return id;
+    public String getBankAccountId() {
+        return bankAccountId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setBankAccountId(String bankAccountId) {
+        this.bankAccountId = bankAccountId;
     }
 
     public Account getAccount() {
@@ -62,7 +62,7 @@ public class BankAccount {
     @Override
     public String toString() {
         return "BankAccount{" +
-                "id='" + id + '\'' +
+                "bankAccountId='" + bankAccountId + '\'' +
                 ", account=" + account +
                 ", bankName='" + bankName + '\'' +
                 ", iban='" + iban + '\'' +

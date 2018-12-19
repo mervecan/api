@@ -22,9 +22,8 @@ public class CustomerRepository {
     }
 
     public Customer createCustomer(Customer customer) {
-        int id = count.incrementAndGet();
-        customer.setId(String.valueOf(id));
-        customer.setId(String.valueOf(id));
+//        int id = count.incrementAndGet();
+//        customer.setId(String.valueOf(id));
         customerList.size();
         customerList.add(customer);
         return customer;

@@ -3,30 +3,30 @@ package models;
 import java.util.List;
 
 public class Order {
-    private String id;
+    private String orderId;
     // private Account account;
     private String amount;
-    private List<Product> items;
+    private List<Product> products;
     private STATUS status;
 
     public Order() {
 
     }
 
-    public Order(String id, String amount, List<Product> items, STATUS status) {
-        this.id = id;
+    public Order(String orderId, String amount, List<Product> products, STATUS status) {
+        this.orderId = orderId;
         //  this.account = account;
         this.amount = amount;
-        this.items = items;
+        this.products = products;
         this.status = status;
     }
 
-    public String getId() {
-        return id;
+    public String getOrderId() {
+        return orderId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
 //    public Account getAccount() {
@@ -45,12 +45,12 @@ public class Order {
         this.amount = amount;
     }
 
-    public List<Product> getItems() {
-        return items;
+    public List<Product> getProducts() {
+        return products;
     }
 
-    public void setItems(List<Product> items) {
-        this.items = items;
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
     public STATUS getStatus() {
@@ -64,10 +64,10 @@ public class Order {
     @Override
     public String toString() {
         return "Order{" +
-                "id='" + id + '\'' +
+                "orderId='" + orderId + '\'' +
 //                ", account=" + account +
                 ", amount='" + amount + '\'' +
-                ", items=" + items +
+                ", products=" + products +
                 ", status=" + status +
                 '}';
     }

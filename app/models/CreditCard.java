@@ -1,7 +1,7 @@
 package models;
 
 public class CreditCard {
-    private String id;
+    private String creditCardId;
     private Account account;
     private BRAND brand;
     private String cardNumber;
@@ -12,8 +12,8 @@ public class CreditCard {
     public CreditCard() {
     }
 
-    public CreditCard(String id, Account account, BRAND brand, String cardNumber, String expMonth, String expYear, Balance balance) {
-        this.id = id;
+    public CreditCard(String creditCardId, Account account, BRAND brand, String cardNumber, String expMonth, String expYear, Balance balance) {
+        this.creditCardId = creditCardId;
         this.account = account;
         this.brand = brand;
         this.cardNumber = cardNumber;
@@ -22,12 +22,12 @@ public class CreditCard {
         this.balance = balance;
     }
 
-    public String getId() {
-        return id;
+    public String getCreditCardId() {
+        return creditCardId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setCreditCardId(String creditCardId) {
+        this.creditCardId = creditCardId;
     }
 
     public Account getAccount() {
@@ -81,7 +81,7 @@ public class CreditCard {
     @Override
     public String toString() {
         return "CreditCard{" +
-                "id='" + id + '\'' +
+                "creditCardId='" + creditCardId + '\'' +
                 ", account=" + account +
                 ", brand=" + brand +
                 ", cardNumber='" + cardNumber + '\'' +
