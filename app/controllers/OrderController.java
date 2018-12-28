@@ -4,7 +4,6 @@ import com.google.inject.Inject;
 import models.Order;
 import models.OrderRepository;
 import play.libs.Json;
-import play.mvc.Controller;
 import play.mvc.Result;
 
 import java.util.List;

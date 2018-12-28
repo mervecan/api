@@ -30,6 +30,8 @@ public class CreditCardRepository {
     public CreditCard createCreditCard(String id, CreditCard creditCard) {
         for (Account a : accountRepository.getAccountList()) {
             if (a.getId().equals(id)) {
+                int creditCardId = count.incrementAndGet();
+                creditCard.setCreditCardId(String.valueOf(creditCardId));
                 a.addCreditCard(creditCard);
                 return creditCard;
             }

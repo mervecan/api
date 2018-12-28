@@ -28,7 +28,6 @@ public class AccountRepository {
     public Account createAccount(Account account) {
         int id = count.incrementAndGet();
         account.setId(String.valueOf(id));
-        account.setId(String.valueOf(id));
         accountList.size();
         accountList.add(account);
         return account;
