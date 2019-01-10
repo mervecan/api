@@ -27,13 +27,16 @@ public class BankAccountRepository {
         bankAccountList = new ArrayList<BankAccount>();
     }
 
-    public BankAccount createBankAccount(String id, BankAccount bankAccount) {
+    public boolean createBankAccount(String id, BankAccount bankAccount) {
+        boolean flag = false;
         for (Account a : accountRepository.getAccountList()) {
             if (a.getId().equals(id)) {
                 a.addBankAccount(bankAccount);
-                return bankAccount;
+                flag = true;;
+            }else{
+                flag = false;
             }
         }
-        return null;
+        return flag;
     }
 }

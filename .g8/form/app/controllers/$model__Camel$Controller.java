@@ -9,12 +9,12 @@ import javax.inject.Inject;
 
 // Add the following to conf/routes 
 /*
-GET     /$models;format="camel"$        controllers.$models;format="Camel"$Controller.$models;format="camel"$Get
-POST    /$models;format="camel"$        controllers.$models;format="Camel"$Controller.$models;format="camel"$Post
+GET     /$model;format="camel"$        controllers.$model;format="Camel"$Controller.$model;format="camel"$Get
+POST    /$model;format="camel"$        controllers.$model;format="Camel"$Controller.$model;format="camel"$Post
 */
 
 /**
- * $models;format="Camel"$ form controller for Play Java
+ * $model;format="Camel"$ form controller for Play Java
  */
 public class $model;format="Camel"$Controller extends Controller {
 

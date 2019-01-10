@@ -3,6 +3,8 @@ package models;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import models.*;
+import java.util.*;
 
 public class CustomerRepository {
     private static final AtomicInteger count = new AtomicInteger(0);
@@ -17,6 +19,10 @@ public class CustomerRepository {
         return instance;
     }
 
+    public CustomerRepository() {
+        customerList = new ArrayList<Customer>();
+    }
+
     public List<Customer> getCustomerList() {
         return customerList;
     }
@@ -24,7 +30,7 @@ public class CustomerRepository {
     public Customer createCustomer(Customer customer) {
 //        int id = count.incrementAndGet();
 //        customer.setId(String.valueOf(id));
-        customerList.size();
+      //  customerList.size();
         customerList.add(customer);
         return customer;
     }

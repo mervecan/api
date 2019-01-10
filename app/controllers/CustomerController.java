@@ -22,9 +22,9 @@ public class CustomerController extends Controller {
         return created(Json.toJson(customerRequest)).as("application/json");
     }
 
-    public Result deleteCustomer() {
-        JsonNode json = request().body().asJson();
-        String id = json.findPath("id").textValue();
+    public Result deleteCustomer(String id) {
+//        JsonNode json = request().body().asJson();
+//        String id = json.findPath("id").textValue();
         Boolean val = customerRepository.deleteCustomer(id);
         return ok(String.valueOf(val)).as("application/json");
     }
@@ -35,9 +35,9 @@ public class CustomerController extends Controller {
         return ok(Json.toJson(customerRequest)).as("application/json");
     }
 
-    public Result retrieveCustomer() {
-        JsonNode json = request().body().asJson();
-        String id = json.findPath("id").textValue();
+    public Result retrieveCustomer(String id) {
+//        JsonNode json = request().body().asJson();
+//        String id = json.findPath("id").textValue();
         Customer customer = customerRepository.retrieveCustomer(id);
         if (customer == null) {
             return ok("sorry");

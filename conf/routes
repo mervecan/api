@@ -6,19 +6,19 @@
 GET     /                           controllers.HomeController.index
 POST    /account                    controllers.AccountController.createAccount
 PUT     /account                    controllers.AccountController.updateAccount
-DELETE  /account                    controllers.AccountController.deleteAccount
-GET     /account                    controllers.AccountController.retrieveAccount
+DELETE  /account/:id                controllers.AccountController.deleteAccount(id : String)
+GET     /account/:id                controllers.AccountController.retrieveAccount(id : String)
 
 POST    /account/:id/order          controllers.OrderController.createOrder(id : String)
 GET     /account/:id/order          controllers.OrderController.retrieveOrders(id : String)
 
 POST    /account/:id/creditCard     controllers.CreditCardController.createCreditCard(id : String)
-POST    /account/:id/bankAccount    controllers.BankAccountController.createBankAccount(id : String)
+GET     /account/:id/creditCard     controllers.CreditCardController.retrieveCreditCards(id : String)
 
-POST    /customer                   controllers.CustomerController.createCustomer
-PUT     /customer                   controllers.CustomerController.updateCustomer
-DELETE  /customer                   controllers.CustomerController.updateCustomer
-GET     /customer                   controllers.CustomerController.retrieveCustomer
+
+POST    /account/:id/bankAccount    controllers.BankAccountController.createBankAccount(id : String)
+GET    /account/:id/bankAccount     controllers.BankAccountController.retrieveBankAccounts(id : String)
+
 
 
 # Map static resources from the /public folder to the /assets URL path

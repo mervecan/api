@@ -29,23 +29,23 @@ public class OrderRepository {
         orderList = new ArrayList<Order>();
     }
 
-    public Order createOrder(String id, Order order) {
+    public boolean createOrder(String id, Order order) {
+        boolean flag=false;
         for (Account a : accountRepository.getAccountList()) {
             if (a.getId().equals(id)) {
                 a.addOrders(order);
+                flag=true;
             }else{
-                return null;
+                flag=false;
             }
         }
-        return order;
+        return flag;
     }
 
     public List<Order> retrieveOrders(String id) {
         for (Account a : accountRepository.getAccountList()) {
             if (a.getId().equals(id)) {
                 return a.getOrders();
-            }else{
-                return null;
             }
         }
         return null;

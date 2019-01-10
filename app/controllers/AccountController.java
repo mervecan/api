@@ -18,7 +18,6 @@ public class AccountController extends Controller {
 
     public Result createAccount() {
         JsonNode json = request().body().asJson();
-//        String id = json.findPath("id").textValue();
         if(json == null){
             return status(404, "You need define parameters");
         }
@@ -27,9 +26,7 @@ public class AccountController extends Controller {
         return created(Json.toJson(accountRequest)).as("application/json");
     }
 
-    public Result deleteAccount() {
-        JsonNode json = request().body().asJson();
-        String id = json.findPath("id").textValue();
+    public Result deleteAccount(String id) {
         Boolean val = accountRepository.deleteAccount(id);
         if (val.equals(true)) {
             return status(200, "Account deleted successfully");
@@ -54,13 +51,13 @@ public class AccountController extends Controller {
         }
     }
 
-    public Result retrieveAccount() {
-        JsonNode json = request().body().asJson();
-        if (json == null) {
-            return status(400, "Bad request: you should give id");
-        }
+    public Result retrieveAccount(String id) {
+//        //JsonNode json = request().body().asJson();
+//        if (id == null) {
+//            return status(400, "Bad request: you should give id");
+//        }
 
-        String id = json.findPath("id").textValue();
+      //  String id = json.findPath("id").textValue();
         Account account = accountRepository.retrieveAccount(id);
         if (account == null) {
             return status(404, "Not found: account cannot found");

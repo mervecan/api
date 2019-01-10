@@ -1,7 +1,6 @@
 package models;
 
 import com.google.inject.Inject;
-import play.mvc.Result;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,16 +26,19 @@ public class CreditCardRepository {
         creditCardList = new ArrayList<CreditCard>();
     }
 
-    public CreditCard createCreditCard(String id, CreditCard creditCard) {
+    public boolean createCreditCard(String id, CreditCard creditCard) {
+        boolean flag = false;
         for (Account a : accountRepository.getAccountList()) {
             if (a.getId().equals(id)) {
                 int creditCardId = count.incrementAndGet();
-                creditCard.setCreditCardId(String.valueOf(creditCardId));
+                //creditCard.setCreditCardId(String.valueOf(creditCardId));
                 a.addCreditCard(creditCard);
-                return creditCard;
+                flag = true;
+            }else{
+                flag = false;
             }
         }
-        return null;
+        return flag;
     }
 
 }

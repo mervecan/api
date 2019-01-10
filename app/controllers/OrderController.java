@@ -5,8 +5,9 @@ import models.Order;
 import models.OrderRepository;
 import play.libs.Json;
 import play.mvc.Result;
-
+import play.mvc.Controller;
 import java.util.List;
+import models.AccountRepository;
 
 public class OrderController extends Controller {
 
@@ -18,13 +19,8 @@ public class OrderController extends Controller {
 
         Order orderRequest = Json.fromJson(request().body().asJson(), Order.class);
 
-        Order order = orderRepository.createOrder(id, orderRequest);
-        if(order==null){
-            return status(404, "Not Found: Account cannot found");
-        }
-        else {
+        Boolean createProcess = orderRepository.createOrder(id, orderRequest);
             return created(Json.toJson(orderRequest)).as("application/json");
-        }
     }
 
     public Result retrieveOrders(String id) {
